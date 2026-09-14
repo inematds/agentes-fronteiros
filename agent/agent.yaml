@@ -1,0 +1,17 @@
+# agent.yaml — equivalente ao agent.ts do eve (convenção; não é lido por runtime)
+name: inema-agent
+descricao: Agente generalista INEMA. Identifica intenção, escolhe skill, executa com tools, valida por contrato, aprende.
+modelo:
+  padrao: claude-fable-5-1
+  despacho: ver skill maestro-roteador (modelo + esforço por tarefa)
+instrucoes: instructions.md
+memoria:
+  wiki: ../wiki            # bundle OKF; ler index.md antes de qualquer conceito
+  falhas: ../FALHAS.md
+saida_padrao: ~/projetos/output/<projeto>/
+politica_roteamento:
+  ordem: [intencao, cluster, skill, contrato]
+  sem_match: perguntar em texto livre (nunca menu interativo)
+loop:
+  teto_iteracoes: 3
+  entrega_com_falha: entregar melhor rascunho + dizer o que falhou + FALHAS.md

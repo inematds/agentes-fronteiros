@@ -1,0 +1,55 @@
+skill: curso
+versao: 0.1.0
+cluster: curso
+origem:
+  - formato-curso-v5        # público 40+ leigo, INEMA.PRO, página única (em uso)
+  - formato-curso-v2        # dark âmbar + camada de aprendizagem (em uso)
+  - formato-curso / v3 / v4 # só manutenção de cursos antigos (não migrar; referenciar)
+  - revisar-curso           # auditoria → vira o validador do loop
+  - videos-cursos-inema     # vídeos do curso (landing/trilha/aula) → variante opcional
+
+trigger:
+  - cria um curso
+  - curso sobre X
+  - trilha / módulos / aulas
+  - formato de curso v5 / v2
+  - curso para leigos / curso 40+ / INEMA.PRO
+nao_usar_quando:
+  - guia/landing de projeto (→ publicacao / projetos-landing-guia)
+  - só revisar curso existente (usa o validador diretamente)
+
+input:
+  assunto: obrigatório
+  versao: obrigatório         # v5 | v2 — se o usuário não disser, PERGUNTAR (regra do CLAUDE.md global)
+  publico: default leigo 40+ (v5) | técnico (v2)
+  n_aulas: default até 9 (v5)
+  fonte: opcional             # docs, vídeos, transcrições
+
+output:
+  formato: html
+  arquivos: index.html (trilha) + páginas de módulo (v2) ou página única (v5), self-contained
+  destino: repo do curso (GitHub Pages) → depois atualiza-portal
+  extras: vídeos opcionais via videos-cursos-inema
+
+tools:
+  - skill formato-curso-v5 | formato-curso-v2 (references de markup e design)
+  - skill revisar-curso (validador)
+  - agent/tools/validate_html.py (a criar: links, tamanho, self-contained)
+  - flux2-klein (capas/ilustrações)
+
+acceptance:
+  - abre em file:// sem build nem backend
+  - promessa + tempo em toda aula (v5) / camada de aprendizagem completa (v2)
+  - prática sem terminal em toda aula (v5)
+  - zero jargão de plataforma não explicado (v5)
+  - revisar-curso passa sem erro bloqueante
+  - navegação e progresso funcionam (marcar lido, jornada)
+
+loop:
+  teto_iteracoes: 3
+  inspecionar: abrir no navegador (agent-browser) e percorrer trilha → aula → prática
+  validador: skill revisar-curso + python3 agent/tools/validate_html.py
+
+aprendizado:
+  falhas: FALHAS.md
+  wiki: wiki/skills/formato-curso-v5.md

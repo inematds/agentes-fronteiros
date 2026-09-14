@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migração de Agentes — INEMA</title>
+<style>
+  :root{--bg:#0E1116;--bg2:#151a21;--bg3:#1c232c;--line:#252d38;--fg:#e6e9ee;--mute:#8b95a5;--amber:#F5A623;--amber2:#c98416;--ok:#4cc38a;--warn:#e5484d;--cyan:#3fc1c9;
+    --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 var(--font)}
+  a{color:var(--amber)}
+  header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,#0E1116 70%,rgba(14,17,22,0));padding:14px 20px 10px;border-bottom:1px solid var(--line)}
+  .top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+  h1{margin:0;font-size:18px;letter-spacing:.2px}
+  h1 small{color:var(--mute);font-weight:400;margin-left:8px}
+  .stats{display:flex;flex-wrap:wrap;gap:6px}
+  .stat{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:12px;color:var(--mute);cursor:pointer}
+  .stat b{color:var(--fg);margin-left:4px}
+  .stat.on{border-color:var(--amber);color:var(--amber)}
+  nav{display:flex;gap:4px;margin-top:10px;flex-wrap:wrap}
+  nav button,.btn{background:var(--bg2);border:1px solid var(--line);color:var(--fg);padding:6px 12px;border-radius:8px;cursor:pointer;font:inherit}
+  nav button.on{background:var(--amber);color:#111;border-color:var(--amber);font-weight:600}
+  .btn.amber{background:var(--amber);color:#111;border-color:var(--amber);font-weight:600}
+  .btn:disabled{opacity:.5;cursor:default}
+  main{padding:16px 20px 60px}
+  .tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+  input[type=search],select,textarea,input[type=text]{background:var(--bg2);border:1px solid var(--line);color:var(--fg);padding:7px 10px;border-radius:8px;font:inherit}
+  input[type=search]{min-width:260px}
+  textarea{width:100%;min-height:90px;resize:vertical;font-family:var(--mono);font-size:12px}
+  /* kanban */
+  .kanban{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(210px,1fr);gap:10px;overflow-x:auto;padding-bottom:8px}
+  .col{background:var(--bg2);border:1px solid var(--line);border-radius:10px;min-height:200px;display:flex;flex-direction:column}
+  .col h3{margin:0;padding:10px 12px;font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--mute);border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+  .col h3 span{background:var(--bg3);border-radius:6px;padding:0 6px;color:var(--fg)}
+  .cards{padding:8px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card{background:var(--bg3);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:8px;padding:8px 10px;cursor:pointer}
+  .card:hover{border-color:var(--amber)}
+  .card.agente{border-left-color:var(--cyan)}
+  .card .n{font-weight:600;font-size:13px;word-break:break-all}
+  .card .d{color:var(--mute);font-size:11.5px;margin-top:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .card .c{margin-top:5px;font-size:10.5px;color:var(--amber2);font-family:var(--mono)}
+  /* tabela */
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--mute);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;position:sticky;top:112px;background:var(--bg)}
+  tr:hover td{background:var(--bg2)}
+  td.n{font-family:var(--mono);white-space:nowrap;cursor:pointer;color:var(--amber)}
+  .tag{display:inline-block;background:var(--bg3);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:11px;font-family:var(--mono)}
+  .tag.e-inventariado{color:var(--mute)} .tag.e-mapeado{color:#c9b458} .tag.e-skill,.tag.e-tools,.tag.e-contrato,.tag.e-loop{color:var(--amber)} .tag.e-testado{color:var(--cyan)} .tag.e-aprovado{color:var(--ok)} .tag.e-descontinuado{color:var(--warn);text-decoration:line-through}
+  /* clusters */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+  .box{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .box h3{margin:0 0 4px;font-size:15px}
+  .box .m{color:var(--mute);font-size:12px;margin-bottom:8px}
+  .box ul{margin:0;padding-left:18px}
+  .box li{margin:2px 0}
+  .bar{height:6px;background:var(--bg3);border-radius:4px;overflow:hidden;margin:8px 0}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--amber2),var(--amber))}
+  /* drawer */
+  .drawer{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--bg2);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .18s;z-index:9;display:flex;flex-direction:column}
+  .drawer.open{transform:none}
+  .drawer .hd{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .drawer .hd h2{margin:0;font-size:16px;font-family:var(--mono);word-break:break-all}
+  .drawer .bd{padding:14px 16px;overflow:auto;flex:1}
+  .field{margin-bottom:12px}
+  .field label{display:block;color:var(--mute);font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+  .field select,.field input[type=text]{width:100%}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .md{font-size:13px}
+  .md h1,.md h2,.md h3{margin:14px 0 6px;font-size:14px;color:var(--amber)} .md h1{font-size:16px}
+  .md table{font-size:12px;margin:6px 0} .md code{background:var(--bg3);padding:1px 5px;border-radius:4px;font-family:var(--mono);font-size:12px}
+  .md pre{background:var(--bg);border:1px solid var(--line);padding:10px;border-radius:8px;overflow:auto;font-size:12px}
+  .md pre code{background:none;padding:0}
+  .md hr{border:0;border-top:1px solid var(--line)}
+  .toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--amber);color:var(--fg);padding:8px 14px;border-radius:8px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+  .toast.on{opacity:1}
+  .empty{color:var(--mute);padding:30px;text-align:center}
+  details summary{cursor:pointer;color:var(--amber)}
+  @media (max-width:700px){main{padding:12px}th{top:0;position:static}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <h1>Migração de Agentes <small>agentes especializados → generalista + skills · wiki OKF</small></h1>
+    <div class="stats" id="stats"></div>
+  </div>
+  <nav>
+    <button data-v="kanban" class="on">Kanban</button>
+    <button data-v="tabela">Tabela</button>
+    <button data-v="clusters">Clusters</button>
+    <button data-v="contratos">Contratos</button>
+    <button data-v="wiki">Wiki</button>
+    <button data-v="log">Log</button>
+    <span style="flex:1"></span>
+    <button id="rescan" title="roda tools/inventario.py">↻ Re-inventariar</button>
+  </nav>
+</header>
+<main>
+  <div class="tools">
+    <input type="search" id="q" placeholder="buscar skill, gatilho, ferramenta…">
+    <select id="fCluster"><option value="">todos os clusters</option></select>
+    <select id="fTipo"><option value="">skills + agentes</option><option value="Skill">só skills</option><option value="Agente">só agentes</option></select>
+    <span id="count" style="color:var(--mute)"></span>
+  </div>
+  <section id="view"></section>
+</main>
+
+<aside class="drawer" id="drawer">
+  <div class="hd"><h2 id="dTitle">—</h2><button class="btn" onclick="fechar()">✕</button></div>
+  <div class="bd">
+    <div id="dMeta" style="color:var(--mute);font-size:12px;margin-bottom:12px"></div>
+    <div class="field"><label>Estágio</label><select id="dEstagio"></select></div>
+    <div class="field"><label>Cluster</label><select id="dCluster"></select></div>
+    <div class="field"><label>Destino (skill migrada em agent/skills/)</label><input type="text" id="dDestino" placeholder="ex.: reels"></div>
+    <div class="field"><label>Notas de migração</label><textarea id="dNotas"></textarea></div>
+    <div class="row"><button class="btn amber" id="dSalvar">Salvar no frontmatter</button><span id="dStatus" style="color:var(--mute);font-size:12px"></span></div>
+    <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+    <details><summary>Página da wiki (markdown renderizado)</summary><div class="md" id="dMd" style="margin-top:8px"></div></details>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+
+<script>
+const ESTAGIOS_DESC={inventariado:"1 · listado pelo inventário",mapeado:"2 · processo mapeado (tarefa→entradas→tools→saída→validação)",skill:"3 · SKILL.md migrada em agent/skills/",tools:"4 · código repetido extraído p/ agent/tools/",contrato:"5 · contrato.yaml com acceptance",loop:"6 · loop de validação dentro da skill",testado:"7 · passou em evals/tarefas",aprovado:"8 · em uso real sem correção",descontinuado:"× absorvida por outra skill"};
+let DATA={skills:[],agentes:[],estagios:[],por_estagio:{}},CLUSTERS=[],CONTRATOS=[],view="kanban",filtroEstagio="",atual=null;
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),1800)}
+async function api(p,opt){const r=await fetch(p,opt);const ct=r.headers.get("content-type")||"";return ct.includes("json")?r.json():r.text()}
+
+async function carregar(){
+  [DATA,CLUSTERS,CONTRATOS]=await Promise.all([api("/api/inventario"),api("/api/clusters"),api("/api/contratos")]);
+  const opts=CLUSTERS.map(c=>`<option value="${esc(c.cluster?.id||c.id.split("/")[1])}">${esc(c.cluster?.id||c.id.split("/")[1])} (${(c.cluster?.membros||[]).length})</option>`).join("");
+  $("#fCluster").innerHTML=`<option value="">todos os clusters</option>${opts}<option value="conselho">conselho (agentes)</option>`;
+  $("#dCluster").innerHTML=opts+`<option value="conselho">conselho</option><option value="outros">outros</option>`;
+  $("#dEstagio").innerHTML=DATA.estagios.map(e=>`<option value="${e}">${e} — ${ESTAGIOS_DESC[e]||""}</option>`).join("");
+  render();
+}
+function itens(){
+  const q=$("#q").value.trim().toLowerCase(),fc=$("#fCluster").value,ft=$("#fTipo").value;
+  let all=[...DATA.skills,...DATA.agentes];
+  return all.filter(x=>{
+    const m=x.migracao||{};
+    if(ft&&x.type!==ft)return false;
+    if(fc&&m.cluster!==fc)return false;
+    if(filtroEstagio&&(m.estagio||"inventariado")!==filtroEstagio)return false;
+    if(q){const blob=[x.id,x.title,x.description,(x.skill?.gatilhos||[]).join(" "),(x.skill?.ferramentas||[]).join(" "),m.notas,m.destino].join(" ").toLowerCase();if(!blob.includes(q))return false}
+    return true;
+  });
+}
+function stats(){
+  const total=DATA.skills.length+DATA.agentes.length;
+  const html=[`<span class="stat ${filtroEstagio===""?"on":""}" data-e="">total<b>${total}</b></span>`]
+    .concat(DATA.estagios.map(e=>`<span class="stat ${filtroEstagio===e?"on":""}" data-e="${e}">${e}<b>${DATA.por_estagio[e]||0}</b></span>`)).join("");
+  $("#stats").innerHTML=html;
+  document.querySelectorAll(".stat").forEach(s=>s.onclick=()=>{filtroEstagio=s.dataset.e;render()});
+}
+function tagE(e){return `<span class="tag e-${e}">${e}</span>`}
+function card(x){const m=x.migracao||{};return `<div class="card ${x.type==="Agente"?"agente":""}" data-id="${esc(x.id)}"><div class="n">${esc(x.title)}</div><div class="d">${esc(x.description)}</div><div class="c">${esc(m.cluster||"")}${m.destino?" → "+esc(m.destino):""}</div></div>`}
+
+function render(){
+  stats();
+  const list=itens();$("#count").textContent=`${list.length} itens`;
+  const v=$("#view");
+  if(view==="kanban"){
+    v.innerHTML=`<div class="kanban">${DATA.estagios.map(e=>{const its=list.filter(x=>(x.migracao?.estagio||"inventariado")===e);return `<div class="col"><h3 title="${esc(ESTAGIOS_DESC[e])}">${e}<span>${its.length}</span></h3><div class="cards">${its.map(card).join("")||""}</div></div>`}).join("")}</div>`;
+  }else if(view==="tabela"){
+    v.innerHTML=list.length?`<table><thead><tr><th>Skill / agente</th><th>Tipo</th><th>Estágio</th><th>Cluster</th><th>Destino</th><th>Gatilhos</th><th>Ferramentas</th><th>Scripts</th><th>Atualizado</th></tr></thead><tbody>${list.map(x=>{const m=x.migracao||{};return `<tr><td class="n" data-id="${esc(x.id)}">${esc(x.title)}</td><td>${esc(x.type)}</td><td>${tagE(m.estagio||"inventariado")}</td><td><span class="tag">${esc(m.cluster||"")}</span></td><td>${esc(m.destino||"")}</td><td style="color:var(--mute);font-size:12px">${esc((x.skill?.gatilhos||[]).slice(0,4).join(" · "))}</td><td style="font-size:12px">${esc((x.skill?.ferramentas||[]).join(", "))}</td><td>${(x.skill?.scripts||[]).length||""}</td><td style="color:var(--mute);font-size:12px">${esc(m.atualizado||"")}</td></tr>`}).join("")}</tbody></table>`:`<div class="empty">nada com esse filtro</div>`;
+  }else if(view==="clusters"){
+    const byId=Object.fromEntries([...DATA.skills,...DATA.agentes].map(x=>[x.id.split("/")[1],x]));
+    v.innerHTML=`<div class="grid">${CLUSTERS.sort((a,b)=>(b.cluster?.membros||[]).length-(a.cluster?.membros||[]).length).map(c=>{const mem=c.cluster?.membros||[];const done=mem.filter(n=>["aprovado","descontinuado","testado"].includes(byId[n]?.migracao?.estagio)).length;
+      return `<div class="box"><h3>${esc(c.title)}</h3><div class="m">${mem.length} skills · ${done} concluídas · <a href="#" data-wiki="${esc(c.id)}">página do cluster</a></div><div class="bar"><i style="width:${mem.length?100*done/mem.length:0}%"></i></div><ul>${mem.map(n=>{const x=byId[n];const e=x?.migracao?.estagio||"inventariado";return `<li><span class="tag e-${e}" style="min-width:0">${e}</span> <a href="#" data-id="skills/${esc(n)}">${esc(n)}</a>${x?.migracao?.destino?` <span style="color:var(--mute)">→ ${esc(x.migracao.destino)}</span>`:""}</li>`}).join("")}</ul></div>`}).join("")}</div>`;
+  }else if(view==="contratos"){
+    v.innerHTML=CONTRATOS.length?`<div class="grid">${CONTRATOS.map(c=>`<div class="box"><h3>${esc(c.skill||c.arquivo)} <span class="tag">${esc(c.versao||"")}</span></h3><div class="m">cluster <b>${esc(c.cluster||"")}</b> · consolida: ${esc((c.origem||[]).map(o=>String(o).split("#")[0].trim()).join(", "))}</div>
+      <b style="font-size:12px;color:var(--mute)">TRIGGER</b><ul>${(c.trigger||[]).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+      <b style="font-size:12px;color:var(--mute)">ACCEPTANCE</b><ul>${(c.acceptance||[]).map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+      <details style="margin-top:8px"><summary>YAML completo</summary><pre class="md" style="margin-top:6px"><code>${esc(c.raw)}</code></pre></details></div>`).join("")}</div>`:`<div class="empty">nenhum contrato em migracao/contratos/</div>`;
+  }else if(view==="wiki"){
+    v.innerHTML=`<div class="box"><div class="row"><input type="text" id="wId" placeholder="id do conceito, ex.: conceitos/okf" style="min-width:320px"><button class="btn amber" id="wGo">Abrir</button>
+      <span style="color:var(--mute)">atalhos:</span> ${["index","SCHEMA","conceitos/index","conceitos/plano-migracao","conceitos/okf","conceitos/eve-vercel","conceitos/llm-wiki-karpathy","clusters/index","skills/index"].map(i=>`<a href="#" data-wiki="${i}">${i}</a>`).join(" · ")}</div><div class="md" id="wMd" style="margin-top:14px"></div></div>`;
+    $("#wGo").onclick=()=>abrirWiki($("#wId").value.trim());
+    abrirWiki("index");
+  }else if(view==="log"){
+    api("/api/log").then(t=>{v.innerHTML=`<div class="box md">${md(t)}</div>`});
+  }
+  v.querySelectorAll("[data-id]").forEach(el=>el.onclick=ev=>{ev.preventDefault();abrir(el.dataset.id)});
+  v.querySelectorAll("[data-wiki]").forEach(el=>el.onclick=ev=>{ev.preventDefault();if(view!=="wiki"){view="wiki";document.querySelectorAll("nav button[data-v]").forEach(b=>b.classList.toggle("on",b.dataset.v==="wiki"));render()}abrirWiki(el.dataset.wiki)});
+}
+async function abrirWiki(id){const t=await api("/api/wiki?id="+encodeURIComponent(id));const box=$("#wMd");if(!box)return;box.innerHTML=typeof t==="string"?md(t):`<span style="color:var(--warn)">${esc(t.erro)}</span>`;if($("#wId"))$("#wId").value=id;
+  box.querySelectorAll("a[href]").forEach(a=>{const h=a.getAttribute("href");if(/^[a-z]+:/.test(h))return;a.onclick=ev=>{ev.preventDefault();const base=id.includes("/")?id.split("/").slice(0,-1).join("/")+"/":"";let p=(base+h).replace(/\.md$/,"");const parts=[];p.split("/").forEach(s=>{if(s==="..")parts.pop();else if(s!=="."&&s!=="")parts.push(s)});abrirWiki(parts.join("/"))}})}
+
+async function abrir(id){
+  const x=[...DATA.skills,...DATA.agentes].find(i=>i.id===id);if(!x)return;atual=x;const m=x.migracao||{};
+  $("#dTitle").textContent=x.title;$("#dMeta").innerHTML=`${esc(x.type)} · <code>${esc(x.id)}</code> · ${esc(x.description)}<br>${x.skill?`versão ${esc(x.skill.versao||"—")} · ${x.skill.arquivos} arquivos · scripts: ${(x.skill.scripts||[]).length} · ferramentas: ${esc((x.skill.ferramentas||[]).join(", ")||"—")}`:""}`;
+  $("#dEstagio").value=m.estagio||"inventariado";$("#dCluster").value=m.cluster||"";$("#dDestino").value=m.destino||"";$("#dNotas").value=m.notas||"";$("#dStatus").textContent=m.atualizado?"atualizado "+m.atualizado:"";
+  const t=await api("/api/wiki?id="+encodeURIComponent(id));$("#dMd").innerHTML=typeof t==="string"?md(t):"";
+  $("#drawer").classList.add("open");
+}
+function fechar(){$("#drawer").classList.remove("open");atual=null}
+$("#dSalvar").onclick=async()=>{if(!atual)return;const b=$("#dSalvar");b.disabled=true;
+  const r=await api("/api/migracao",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({id:atual.id,estagio:$("#dEstagio").value,cluster:$("#dCluster").value,destino:$("#dDestino").value,notas:$("#dNotas").value})});
+  b.disabled=false;if(r.erro){toast("erro: "+r.erro);return}toast(r.mudou?"salvo no frontmatter + log":"nada mudou");await carregar();if(r.mudou)abrir(atual.id)};
+$("#rescan").onclick=async()=>{const b=$("#rescan");b.disabled=true;b.textContent="…";const r=await api("/api/rescan",{method:"POST"});b.disabled=false;b.textContent="↻ Re-inventariar";toast(r.ok?(r.stdout.split("\n")[0]||"ok"):"falhou: "+r.stderr);carregar()};
+document.querySelectorAll("nav button[data-v]").forEach(b=>b.onclick=()=>{view=b.dataset.v;document.querySelectorAll("nav button[data-v]").forEach(x=>x.classList.toggle("on",x===b));render()});
+["#q","#fCluster","#fTipo"].forEach(s=>$(s).addEventListener("input",render));
+document.addEventListener("keydown",e=>{if(e.key==="Escape")fechar()});
+
+// markdown mínimo (frontmatter vira bloco, tabelas, cabeçalhos, listas, código, links, ênfase)
+function md(src){
+  let s=String(src);let fm="";const m=s.match(/^---\n([\s\S]*?)\n---\n?/);if(m){fm=m[1];s=s.slice(m[0].length)}
+  const blocks=[];s=s.replace(/```([\s\S]*?)```/g,(_,c)=>{blocks.push(`<pre><code>${esc(c.replace(/^\w*\n/,""))}</code></pre>`);return ` ${blocks.length-1} `});
+  const lines=s.split("\n");let out=[],inList=null,inTable=false;
+  const inline=t=>esc(t).replace(/`([^`]+)`/g,"<code>$1</code>").replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(/(^|[^*])\*([^*\n]+)\*/g,"$1<i>$2</i>").replace(/~~([^~]+)~~/g,"<s>$1</s>").replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>');
+  const closeList=()=>{if(inList){out.push(`</${inList}>`);inList=null}};const closeTable=()=>{if(inTable){out.push("</tbody></table>");inTable=false}};
+  for(let i=0;i<lines.length;i++){const l=lines[i];
+    if(/^\|/.test(l)){closeList();if(/^\|\s*-+/.test(l))continue;const cells=l.replace(/^\||\|$/g,"").split("|").map(c=>c.trim());if(!inTable){inTable=true;out.push(`<table><thead><tr>${cells.map(c=>`<th>${inline(c)}</th>`).join("")}</tr></thead><tbody>`)}else out.push(`<tr>${cells.map(c=>`<td>${inline(c)}</td>`).join("")}</tr>`);continue}
+    closeTable();
+    let h=l.match(/^(#{1,6})\s+(.*)/);if(h){closeList();out.push(`<h${h[1].length}>${inline(h[2])}</h${h[1].length}>`);continue}
+    let li=l.match(/^\s*[-*]\s+(.*)/);if(li){if(inList!=="ul"){closeList();out.push("<ul>");inList="ul"}out.push(`<li>${inline(li[1])}</li>`);continue}
+    let ol=l.match(/^\s*\d+\.\s+(.*)/);if(ol){if(inList!=="ol"){closeList();out.push("<ol>");inList="ol"}out.push(`<li>${inline(ol[1])}</li>`);continue}
+    closeList();
+    if(/^---+$/.test(l)){out.push("<hr>");continue}
+    if(/^>\s?/.test(l)){out.push(`<blockquote style="border-left:3px solid var(--amber);margin:6px 0;padding:2px 10px;color:var(--mute)">${inline(l.replace(/^>\s?/,""))}</blockquote>`);continue}
+    if(l.trim()==="")continue;
+    out.push(`<p>${inline(l)}</p>`);
+  }
+  closeList();closeTable();
+  let html=out.join("\n").replace(/ (\d+) /g,(_,i)=>blocks[i]);
+  if(fm)html=`<details><summary>frontmatter</summary><pre><code>${esc(fm)}</code></pre></details>`+html;
+  return html;
+}
+carregar();
+</script>
+</body>
+</html>

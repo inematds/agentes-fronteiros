@@ -1,0 +1,64 @@
+skill: reels
+versao: 0.1.0
+cluster: reels
+origem:
+  - reel-edita-inema        # reel empilhado 9:16 em 3 faixas (topo/avatar/base), dark âmbar
+  - reel-edita-inematds     # vídeo bruto vertical → reel cortado (PiP, B-roll, texto, SFX)
+  - forja-reel              # meta-skill: gera uma reel-edita própria (vira reference "estilo")
+  - roteirista-inema        # ideia bruta → roteiro de Reels (gancho 3 s, uma tese, CTA)
+
+trigger:
+  - faz o reel disso
+  - criar reel
+  - vídeo curto
+  - short / shorts / tiktok
+  - vídeo vertical
+  - edita este vídeo para reel
+  - roteiro de reel
+nao_usar_quando:
+  - vídeo explicativo narrado longo 16:9 (→ video-explicativo)
+  - só o avatar falante sem edição (→ avatar)
+
+input:
+  fonte: obrigatório          # texto | url | mp4 16:9 de avatar | mp4 vertical bruto
+  modo: default auto          # empilhado-inema | talking-head-inematds | roteiro
+  tema: opcional
+  publico: opcional
+  duracao: default 30-60s
+  cta: default INEMA.CLUB
+
+output:
+  formato: mp4
+  aspect_ratio: "9:16"
+  resolucao: 1080x1920
+  duracao_max: 60s
+  destino: ~/projetos/output/<projeto>/
+  extras: capa.png (opcional), roteiro.md (modo roteiro)
+
+tools:
+  - agent/tools/transcribe.py      # Groq word-level (hoje em reel-edita-inema/scripts + inemavox)
+  - agent/tools/download_video.py  # inemavox baixar_v1
+  - agent/tools/render_video.py    # ffmpeg/HyperFrames
+  - agent/tools/validate_video.py
+  - flux2-klein                    # imagens de topo/B-roll
+  - inemavox tts (chatterbox/rachel)
+  - inemavox dlp                   # música e SFX
+
+acceptance:
+  - gancho nos primeiros 3 s (texto ou fala)
+  - duração <= 60 s
+  - aspect 9:16 exato, 1080x1920
+  - nenhum texto cortado nas bordas (safe area 5%)
+  - áudio sincronizado (offset < 80 ms na transcrição vs. corte)
+  - sem silêncio > 1,5 s
+  - CTA presente e legível
+  - uma tese por vídeo (modo roteiro)
+
+loop:
+  teto_iteracoes: 3
+  inspecionar: extrair 6 frames (0s, 3s, 25%, 50%, 75%, fim) + ffprobe duração/aspect + transcrição do resultado
+  validador: python3 agent/tools/validate_video.py --aspect 9:16 --max 60 --safe-area 0.05
+
+aprendizado:
+  falhas: FALHAS.md
+  wiki: wiki/skills/reel-edita-inema.md

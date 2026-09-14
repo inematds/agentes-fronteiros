@@ -1,0 +1,122 @@
+# Skills instaladas
+
+Gerado por `tools/inventario.py`. Estágio de migração entre crases.
+
+116 conceitos.
+
+- [3d-animation-creator](3d-animation-creator.md) — Turns a video file into a scroll-driven website where the video scrubs forward and backward as the visitor scrolls (Apple-style). Requires… · `inventariado`
+- [agent-browser](agent-browser.md) — Automates browser interactions for web testing, form filling, screenshots, and data extraction. Use when the user needs to navigate website… · `inventariado`
+- [agent-reach](agent-reach.md) — Fetches internet content: general web research, plus 13 platforms (X, Reddit, YouTube, GitHub, LinkedIn, Bilibili, XiaoHongShu, V2EX, RSS…)… · `inventariado`
+- [algorithmic-art](algorithmic-art.md) — Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art… · `inventariado`
+- [animation-designer](animation-designer.md) — Expert in web animations, transitions, and motion design using Framer Motion and CSS · `inventariado`
+- [anuncio-edita](anuncio-edita.md) —  · `inventariado`
+- [atualiza-portal](atualiza-portal.md) — Publica curso ou projeto (URL github.io) nas 3 superfícies INEMA — portal (inema.club), inemabuscas e catálogo PRO — com commit e push nos… · `inventariado`
+- [audit-ablacao](audit-ablacao.md) — Auditoria de ablação (somente diagnóstico) do CLAUDE.md, das skills e dos hooks de um projeto ou da config global. Classifica cada instruçã… · `inventariado`
+- [auditor-video-ia](auditor-video-ia.md) — Audita prompts, gerações e anúncios criados com IA antes de gastar mais ou publicar. Usar quando alguém disser "/auditor-video-ia", "revisa… · `inventariado`
+- [avaliar-erros-de-fluxos](avaliar-erros-de-fluxos.md) — Diagnostica erros e fragilidades em fluxos n8n/Make (lógica, expressões, filtros, paginação, nulos, N+1, timeouts) e propõe correções testá… · `inventariado`
+- [avatar-heygen-nei](avatar-heygen-nei.md) — Gera vídeo do avatar falante do Nei no HeyGen escolhendo entre os LOOKS/personagens dele (velho, beje, frio, índio, computador, quadro sol,… · `inventariado`
+- [beautiful-mermaid](beautiful-mermaid.md) — Render Mermaid diagrams as SVG and PNG using the Beautiful Mermaid library. Use when the user asks to render a Mermaid diagram. · `inventariado`
+- [brand-guidelines](brand-guidelines.md) — Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Us… · `inventariado`
+- [capa-inema](capa-inema.md) — Gera a capa oficial INEMA (1280x720) de um repo de curso ou projeto — imagem por IA + faixa de título/marca — em `capa/capa.png`. Layouts s… · `inventariado`
+- [clima](clima.md) — Clima atual e previsão (até 16 dias) de qualquer cidade via Open-Meteo, sem API key, em PT-BR. Vale também para decisões que dependem do te… · `inventariado`
+- [comfy-build](comfy-build.md) — Build a custom ComfyUI environment on the Comfy developer platform with comfy-cli: turn a local install, a ComfyUI Desktop snapshot, a work… · `inventariado`
+- [comfy-debug](comfy-debug.md) — Debugging skill for the comfy CLI — failed workflows, stuck jobs, error envelopes, and the fastest path from "it broke" to "fixed". · `inventariado`
+- [comfy-deploy](comfy-deploy.md) — Run a Comfy Build release as a serverless deployment with comfy-cli. Use whenever the user wants to deploy, serve, host, or expose a ComfyU… · `inventariado`
+- [comfy-director](comfy-director.md) — Use when asked to make a narrative video — an ad, brand film, short, trailer, music video, or any multi-shot clip that tells a story (not a… · `inventariado`
+- [comfy-relay](comfy-relay.md) — How to present and interact during comfy creative work (images, video, audio) — show visual previews in chat, not text about files. Creativ… · `inventariado`
+- [comfy](comfy.md) — Generate images, videos, audio, and 3D via ComfyUI — CLI surface, workflow creation hierarchy (template → fragment → raw JSON), domain gotc… · `inventariado`
+- [course-completer](course-completer.md) — Complete Skilljar course lessons and quizzes. Use when user says "complete this lesson", "mark as complete", "finish this course", "skillja… · `inventariado`
+- [design-dna](design-dna.md) — Codifica UM design bonito (site, poster, carrossel, deck, motion, HQ) numa skill permanente — mede o original, debate o que é load-bearing,… · `inventariado`
+- [diretor-animacao](diretor-animacao.md) — O Diretor de Animação — transforma IMAGENS PRONTAS (fotos reais e/ou ilustrações) + NARRAÇÃO em um FILME profissional, sem IA generativa de… · `inventariado`
+- [doc-coauthoring](doc-coauthoring.md) — Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical… · `inventariado`
+- [dublagem-compasso](dublagem-compasso.md) — Redubla um vídeo de personagem falando (Kling, Veo, Seedance) com voz clonada local, alinhando a fala nas batidas da boca — português corre… · `inventariado`
+- [embedded-captions](embedded-captions.md) — Add captions or subtitles to an existing single-subject talking-head video without editing the footage. Use for plain verbatim captions, ci… · `inventariado`
+- [espiona-ads](espiona-ads.md) — Espiona os anúncios de uma conta na Biblioteca de Anúncios da Meta e faz engenharia reversa da fórmula dela: extrai todos os anúncios ativo… · `inventariado`
+- [excalidraw-diagram-generator](excalidraw-diagram-generator.md) — Generate Excalidraw diagrams from natural language descriptions. Use when asked to "create a diagram", "make a flowchart", "visualize a pro… · `inventariado`
+- [fable-mindset](fable-mindset.md) —  · `inventariado`
+- [faceless-explainer](faceless-explainer.md) — Turn arbitrary text — an article, notes, a topic, a brief — into a faceless explainer video: there is no site or footage to capture, so the… · `inventariado`
+- [figma](figma.md) — Import Figma content into a HyperFrames composition — rendered assets, brand tokens, components, storyboard sections → reconstructed motion… · `inventariado`
+- [filme](filme.md) — historia.json (do skill roteiro) vira FILME narrado em parallax 2.5D no pixflow — camera por emocao, musica e SFX, sem IA de video. Gatilho… · `inventariado`
+- [forja-reel](forja-reel.md) — META-SKILL: entrevista você sobre estilo e identidade e gera A SUA própria skill "/reel-edita", com motor de corte e ritmo testado por dent… · `inventariado`
+- [formato-curso-v2](formato-curso-v2.md) — Template e padroes de design para criar paginas HTML de cursos no formato INEMA.CLUB COM camada de aprendizagem por cima — progresso/marcar… · `mapeado`
+- [formato-curso-v3](formato-curso-v3.md) — curso INEMA v3 — pagina de LEITURA editorial, papel quente + serif + 1 acento azul-ardosia, profundidade na MARGEM via sidenotes, camada de… · `inventariado`
+- [formato-curso-v4](formato-curso-v4.md) — curso INEMA v4 — PÁGINA ÚNICA (trilha + aulas como views, roteamento por hash), dark editorial COM movimento (cold-open que fisga + corpo d… · `inventariado`
+- [formato-curso-v5](formato-curso-v5.md) — curso INEMA v5 — página única (trilha + até 9 aulas), dark editorial com motor de retenção, feito para PÚBLICO ADULTO 40+ LEIGO, ocupado e… · `mapeado`
+- [formato-curso](formato-curso.md) — Template e padroes de design para criar paginas HTML de cursos no formato INEMA.CLUB. Use esta skill SEMPRE que o usuario pedir para criar,… · `inventariado`
+- [fs-seis-chapeus](fs-seis-chapeus.md) — Análise estruturada pelos Seis Chapéus de De Bono com sistema anti-âncora integrado e isolamento estrito entre fases. Use SEMPRE que o usuá… · `inventariado`
+- [general-video](general-video.md) — Author or edit a custom HyperFrames composition when no specialized workflow fits, or when BRIEF.md sets flow: companion. Use for longer or… · `inventariado`
+- [generate](generate.md) — Gera imagem ou vídeo a partir de um prompt, roteando para a rota mais barata capaz (local/grátis primeiro, paga só quando o local não dá co… · `inventariado`
+- [grill-me](grill-me.md) — A relentless interview to sharpen a plan or design. · `inventariado`
+- [heygen-cli](heygen-cli.md) — Roteiro de texto vira vídeo de AVATAR FALANTE no HeyGen (via API key), MP4 entregue no Telegram. Também lista vozes, avatares e looks. Rend… · `inventariado`
+- [heygen-mcp](heygen-mcp.md) — Vídeo de avatar falante no HeyGen gastando os CRÉDITOS DA ASSINATURA (via MCP), não o wallet de API. Gatilho: "pela assinatura", "sem gasta… · `inventariado`
+- [heygen-video-nei](heygen-video-nei.md) — Cria um vídeo de avatar na HeyGen pelo navegador (extensão Claude in Chrome/Edge) usando o avatar "Nei Maldaner", voz "INEMA TIME" e motor… · `inventariado`
+- [hyperframes-animation](hyperframes-animation.md) — All animation knowledge for HyperFrames — atomic motion rules, multi-phase scene blueprints, scene transitions, broader motion-design techn… · `inventariado`
+- [hyperframes-audio](hyperframes-audio.md) — Use when audio already placed in a HyperFrames composition needs to be mixed: fade-in/fade-out, crossfade, track gain or volume, volume aut… · `inventariado`
+- [hyperframes-cli](hyperframes-cli.md) — Use the HyperFrames CLI development loop: init, add, catalog, capture, lint, check, snapshot, compare, grade-compare, preview, play, presen… · `inventariado`
+- [hyperframes-core](hyperframes-core.md) — The HyperFrames composition contract — build one renderable project. Use for composition structure, the `data-*` timing attributes, `class=… · `inventariado`
+- [hyperframes-creative](hyperframes-creative.md) — Non-animation creative direction for HyperFrames videos. Use for design spec (frame.md / design.md) handling, palettes, typography, narrati… · `inventariado`
+- [hyperframes-keyframes](hyperframes-keyframes.md) — Use when a HyperFrames composition needs a punch-in, punch-out, zoom, reframe, Ken Burns treatment, camera move, visual match/whip handoff,… · `inventariado`
+- [hyperframes-registry](hyperframes-registry.md) — Search, install, and wire registry blocks and components into HyperFrames compositions. Use BEFORE hand-building any named visual — wheneve… · `inventariado`
+- [hyperframes](hyperframes.md) — Mandatory entry point: read this first for any request to make, create, edit, animate, or render a video, animation, or motion graphic, inc… · `inventariado`
+- [imagens-agnes](imagens-agnes.md) — Gera IMAGENS avulsas com a API Agnes AI (agnes-image-2.1-flash) a custo US$ 0, com todos os parâmetros e armadilhas já MEDIDOS. Use SEMPRE… · `inventariado`
+- [impeccable](impeccable.md) — Design, critique or polish a frontend interface — websites, landing pages, dashboards, product UI, components, forms, empty states. Covers… · `inventariado`
+- [inemaref-folder](inemaref-folder.md) — Cria a FICHA DE REFERENCIA (model sheet) de um personagem a partir de uma FOTO (pessoa real) ou de um TEXTO (descricao/historia). Saida = p… · `inventariado`
+- [inemaref-motioncomic](inemaref-motioncomic.md) — Transforma uma HISTORIA em quadros num VIDEO de motion comic (16:9) — a camera da ZOOM em cada quadro durante a sua narracao (push-in), com… · `inventariado`
+- [inemaref-quadrinho](inemaref-quadrinho.md) — Monta uma PAGINA de quadrinho/manga a partir de uma HISTORIA (e, opcionalmente, da referencia.json de um personagem do folder). Gera 6 quad… · `inventariado`
+- [inemaref-serie](inemaref-serie.md) — Cria uma SERIE completa a partir de um ASSUNTO — escreve a BIBLIA (premissa, protagonista com folder, elenco, estilo, outline de episodios)… · `inventariado`
+- [kling-3-0](kling-3-0.md) — Kling 3.0 video generation on RunComfy. Kling 3.0 (also called Kling V3.0) is Kuaishou Technology's third-generation multi-shot video model… · `inventariado`
+- [maestro-roteador](maestro-roteador.md) — Use when despachando trabalho para subagentes/workflows, quando o usuário passa um problema e pergunta qual modelo ou esforço usar, ou ante… · `inventariado`
+- [making-of-simulacao](making-of-simulacao.md) — UMA foto vira MAQUETE num rig de efeitos práticos de estúdio, e um vídeo behind-the-scenes mostra a simulação afetando a maquete — fogo, te… · `inventariado`
+- [making-of-tanque-ondas](making-of-tanque-ondas.md) — Foto de cidade/prédio vira maquete destruída por uma onda prática num tanque de ondas de estúdio, em vídeo behind-the-scenes (guia AVCC). P… · `inventariado`
+- [mcp-builder](mcp-builder.md) — Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-desig… · `inventariado`
+- [media-use](media-use.md) — Agent Media OS, the single skill for every media need in a HyperFrames project. Resolve BGM, SFX, image, icon, brand logo, voice, color gra… · `inventariado`
+- [memory-audit](memory-audit.md) — Use to audit memory and context quality. Triggers include "analise a memória", "analise CLAUDE.md", "o que foi guardado", "contexto grande"… · `inventariado`
+- [mestre-direcao-dinamica](mestre-direcao-dinamica.md) — Mestre de Direção Dinâmica (MDD) — assunto vira pacote de direção para vídeo gerado por IA: storyboard de painéis, bloqueios de estilo, fai… · `inventariado`
+- [motion-graphics](motion-graphics.md) — A short, design-led motion graphic where motion is the message — kinetic typography, stat count-up, chart/data-viz hit, logo sting / brand… · `inventariado`
+- [music-to-video](music-to-video.md) — Turn a music track (an audio file, a video to pull audio from, or a track generated from a mood brief) into a beat-synced video — lyric vid… · `inventariado`
+- [os-coach](os-coach.md) — Hand-holds a non-technical person through building and assessing their own agentic OS, one layer at a time. Remembers exactly where they ar… · `inventariado`
+- [pixflow-motion](pixflow-motion.md) — Imagens estáticas viram filme cinematográfico — parallax 2.5D real, movimentos de câmera e grain/LUT/bloom — em código aberto, SEM gerador… · `inventariado`
+- [pixflow-trailer](pixflow-trailer.md) — Decupagem (lista de shots com câmera e mood) vira TRAILER narrado com música e SFX, sem IA de vídeo. Gera as imagens, mapeia cada shot para… · `inventariado`
+- [polyskill](polyskill.md) — Cross-runtime skill optimizer. Use this skill when the user wants to package an Agent Skill so it runs in both Claude Code and OpenAI Codex… · `inventariado`
+- [pp-skool](pp-skool.md) — Read Skool community data — posts, members, events — with local cache and topic summaries. · `inventariado`
+- [pr-to-video](pr-to-video.md) — Turn a GitHub pull request (a PR URL, owner/repo#N, or 'this PR' in a checked-out repo) into a code-change explainer video — changelog, fea… · `inventariado`
+- [printing-press-catalog](printing-press-catalog.md) — Browse and install pre-built Go CLIs for popular APIs from the catalog · `inventariado`
+- [printing-press-import](printing-press-import.md) — Bring a published CLI from the public library into the internal library so it's identical to a freshly-generated copy — module path reverte… · `inventariado`
+- [printing-press-output-review](printing-press-output-review.md) — Internal sub-skill: agentic review of a printed CLI's sampled command output for plausibility issues that rule-based checks can't encode (s… · `inventariado`
+- [printing-press-polish](printing-press-polish.md) — Polish a generated CLI to pass verification and become publish-ready. Runs diagnostics (dogfood, verify, scorecard, go vet), automatically… · `inventariado`
+- [printing-press-publish](printing-press-publish.md) — Publish a generated CLI to the printing-press-library repo · `inventariado`
+- [printing-press-reprint](printing-press-reprint.md) — Regenerate an existing printed CLI from scratch under the current Printing Press, with prior research and prior novel features carried into… · `inventariado`
+- [printing-press-retro](printing-press-retro.md) — Run a retrospective after generating a CLI. Identifies systemic improvements to the Printing Press — templates, Go binary, skill instructio… · `inventariado`
+- [printing-press-score](printing-press-score.md) — Score a generated CLI against the Steinberger bar, compare two CLIs side-by-side · `inventariado`
+- [printing-press](printing-press.md) — Generate a ship-ready CLI for an API with a lean research -> generate -> build -> shipcheck loop. · `inventariado`
+- [product-launch-video](product-launch-video.md) — Turn a product or marketing URL, pasted script, or brief into a product launch / promo video — SaaS promos, feature reveals, product demos,… · `inventariado`
+- [projetos-landing-guia](projetos-landing-guia.md) — Pagina unica de LANDING + GUIA DE USO de um projeto, self-contained em guia/index.html, padrao INEMA dark ambar, pronta pra GitHub Pages. G… · `inventariado`
+- [property-360](property-360.md) — Transforma várias fotos comuns de um MESMO cômodo (ou só uma descrição em texto) numa panorâmica 360° equiretangular 2:1 (4096×2048) fotorr… · `inventariado`
+- [reel-edita-inema](reel-edita-inema.md) — Monta o REEL EMPILHADO da marca INEMA (9:16) a partir de vídeos 16:9 — topo impactante, avatar no meio, explicativo na base. Modos: compor,… · `mapeado`
+- [reel-edita-inematds](reel-edita-inematds.md) — Converte um vídeo bruto vertical num reel/TikTok produzido com o estilo de INEMATDS — corta repetições/silêncios/erros, propõe um tratament… · `inventariado`
+- [remotion-best-practices](remotion-best-practices.md) — Best practices for Remotion - Video creation in React · `inventariado`
+- [remotion-to-hyperframes](remotion-to-hyperframes.md) — Port an existing Remotion (React) composition's source to HyperFrames HTML. Use ONLY on an explicit ask to port/convert/migrate/translate a… · `inventariado`
+- [remotion-best-practices](remotion.md) — Best practices for Remotion - Video creation in React · `inventariado`
+- [revisar-curso](revisar-curso.md) — Audita e corrige paginas HTML de cursos no formato INEMA.CLUB. Use esta skill SEMPRE que o usuario pedir para revisar, auditar, checar ou v… · `inventariado`
+- [roteirista-inema](roteirista-inema.md) — Transforma qualquer ideia bruta do Nei em roteiro de Reels/Shorts pronto para gravar, seguindo o método INEMA.TDS (gancho nos 3 primeiros s… · `inventariado`
+- [roteiro](roteiro.md) — Assunto ou historia bruta vira ROTEIRO estruturado para retencao (historia.md + historia.json, contrato inemafilme.historia/v1), com promes… · `inventariado`
+- [scroll-film-studio](scroll-film-studio.md) — Scroll-film website — the whole page is one continuous cinematic shot that plays as the visitor scrolls (pure-code GSAP, or footage from an… · `inventariado`
+- [seedance-loop-prompt](seedance-loop-prompt.md) — Use when generating a Seedance 2 video prompt for a seamless looping background video. Trigger when the user describes a product, scene, or… · `inventariado`
+- [session-handoff](session-handoff.md) — Use when the user wants to end a session and hand off context to a future agent. Triggers include "session handoff", "handoff", "wrap up",… · `inventariado`
+- [session-statusline](session-statusline.md) — Use during active work for a quick operational checkpoint. Triggers include "statusline", "checkpoint", "onde estamos", "resume contexto",… · `inventariado`
+- [silver-platter](silver-platter.md) — Interview a business owner about their day-to-day tools, build a tailored data map, render a Pantry → Prep → Plate HTML visualization with… · `inventariado`
+- [skill-creator](skill-creator.md) — Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, u… · `inventariado`
+- [slideshow](slideshow.md) — Author a HyperFrames slideshow — a presentation, pitch deck, or interactive deck with discrete slides, fragment reveals, branching, hotspot… · `inventariado`
+- [talking-head-recut](talking-head-recut.md) — Package an existing talking-head / interview / podcast video with timed, designed GRAPHIC OVERLAY cards — kinetic titles, lower-thirds, dat… · `inventariado`
+- [theme-factory](theme-factory.md) — Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set… · `inventariado`
+- [ugc-seedance25](ugc-seedance25.md) — Anúncio UGC (creator falando pro celular, one-take 30 s, 9:16, 1080p) com Seedance 2.5 — brief do produto vira 3 prompts prontos (produto,… · `inventariado`
+- [video-demonstrativo](video-demonstrativo.md) — Walkthrough narrado de uma aplicação web a partir do link: navega o app de verdade, captura as telas reais e monta o vídeo com moldura de n… · `inventariado`
+- [video-explicativo](video-explicativo.md) — Cria vídeos explicativos completos em PT-BR (HTML→MP4 via HyperFrames) a partir de um assunto — roteiro, narração TTS local, cenas animadas… · `mapeado`
+- [video-ia](video-ia.md) — Converte uma ideia de anúncio em vídeo gerado com IA, passo a passo: faz cinco perguntas, propõe dez conceitos com roteiro, e dos que você… · `inventariado`
+- [video-plan-editor](video-plan-editor.md) — Cria um plano profissional de vídeo de ALTA PERFORMANCE a partir de um assunto ou link, usando uma base de conhecimento (estratégia viral +… · `inventariado`
+- [videoanima](videoanima.md) — História → filme animado vertical COM DIREÇÃO: escreve a decupagem plano a plano, mostra o custo, e só então gera imagens e clipes (provedo… · `inventariado`
+- [videoprodutor](videoprodutor.md) — O Produtor — orquestra link/assunto → vídeo profissional ponta a ponta (plano, direção, imagem/SVG, voz, render em 3 camadas), 16:9 e 9:16,… · `inventariado`
+- [videos-agnes](videos-agnes.md) — História/conto → filme animado narrado em PT-BR via Agnes AI (US$ 0), entregue no Telegram do openpcbot. Caminho simples e direto. Se pedir… · `inventariado`
+- [videos-cursos-inema](videos-cursos-inema.md) — Gera os vídeos de um curso INEMA a partir do site do curso, em 3 partes selecionáveis: landing, um vídeo por trilha, e/ou uma aula completa… · `inventariado`
+- [web-artifacts-builder](web-artifacts-builder.md) — Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS… · `inventariado`
+- [website-intelligence](website-intelligence.md) — Research-driven competitive intelligence engine for websites. Scrapes a client's existing site, analyzes their top 5 competitors, produces… · `inventariado`

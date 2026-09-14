@@ -1,0 +1,37 @@
+# Contrato de skill (etapa 8 do plano). Copiar para migracao/contratos/<nome>.yaml
+# e, ao migrar, para agent/skills/<nome>/contrato.yaml.
+skill: <nome>
+versao: 0.1.0
+cluster: <id em wiki/clusters/>
+origem:                       # skills/agentes que este contrato consolida
+  - <skill-antiga-1>
+  - <skill-antiga-2>
+
+trigger:                      # frases do usuário; alimentam a description do SKILL.md
+  - <frase 1>
+  - <frase 2>
+nao_usar_quando:              # desambiguação contra clusters vizinhos
+  - <caso>
+
+input:
+  <campo>: obrigatório | opcional | default <valor>
+
+output:
+  formato: <mp4|html|png|md>
+  destino: ~/projetos/output/<projeto>/
+  <restrição>: <valor>
+
+tools:                        # lista fechada
+  - <agent/tools/x.py | mcp | api>
+
+acceptance:                   # cada item precisa ser verificável
+  - <critério mensurável>
+
+loop:
+  teto_iteracoes: 3
+  inspecionar: <o que abrir/medir de verdade>
+  validador: <agent/tools/validate_x.py ou comando>
+
+aprendizado:
+  falhas: FALHAS.md
+  wiki: wiki/skills/<nome>.md

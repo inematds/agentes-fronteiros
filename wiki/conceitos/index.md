@@ -1,0 +1,13 @@
+# Conceitos
+
+9 conceitos.
+
+- [Agente base (INEMA AGENT)](agente-base.md) — O agente generalista que substitui os agentes especializados — identifica intenção, escolhe skill, carrega contexto, chama ferramentas, exe…
+- [Aprendizado permanente (correção vira sistema)](aprendizado-permanente.md) — Nunca corrigir só a saída — investigar por que errou e corrigir a skill, a regra, o exemplo ou o script que produziu a saída.
+- [Contrato de skill](contrato-de-skill.md) — Toda skill migrada tem um contrato YAML com trigger, input, output, tools e acceptance — a skill vira uma função operacional da empresa.
+- [eve (Vercel) — modelo de pastas](eve-vercel.md) — Framework filesystem-first da Vercel para agentes duráveis; o agente é um diretório com slots nomeados. Adotado aqui como convenção de past…
+- [LLM wiki (estilo Karpathy)](llm-wiki-karpathy.md) — Base de conhecimento mantida pelo próprio agente — fontes brutas entram, o modelo consolida em páginas curadas, indexa, registra e lint-a;…
+- [Loop de validação dentro da skill](loop-de-validacao.md) — A primeira versão é rascunho — planejar, executar, inspecionar, criticar, corrigir, testar; só entrega quando passa nos critérios de aceita…
+- [OKF — Open Knowledge Format](okf.md) — Formato aberto, vendor-neutral, para conhecimento como markdown + YAML frontmatter em bundles versionáveis; usado como formato desta wiki.
+- [Plano de migração (agentes → generalista + skills)](plano-migracao.md) — As 10 etapas do plano de migração e a estratégia prática de começar por reels, vídeo explicativo e curso.
+- [Router de intenção](router.md) — O usuário não diz qual skill usar — o agente identifica a intenção, escolhe o cluster e a skill, e usa maestro-roteador para modelo/esforço.

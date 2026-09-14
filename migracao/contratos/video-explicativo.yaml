@@ -1,0 +1,59 @@
+skill: video-explicativo
+versao: 0.1.0
+cluster: video-explicativo
+origem:
+  - video-explicativo       # assunto → roteiro → TTS → HyperFrames dark premium → 16:9 + 9:16 (v1.11.3)
+  - videoprodutor           # link/assunto → vídeo profissional ponta a ponta (3 camadas)
+  - faceless-explainer      # texto → explainer sem rosto (tipografia/diagramas)
+  - video-demonstrativo     # demo de produto (variante)
+
+trigger:
+  - faz um vídeo
+  - vídeo explicativo
+  - vídeo sobre X
+  - mini tutorial em vídeo
+  - vídeo do INEMA
+  - do link ao vídeo / produz o vídeo
+nao_usar_quando:
+  - reel/short vertical a partir de vídeo existente (→ reels)
+  - avatar falante (→ avatar)
+  - imagens prontas viram filme (→ pixflow)
+
+input:
+  assunto_ou_fonte: obrigatório     # texto | url | documento
+  formatos: default [16:9, 9:16]
+  duracao_alvo: default 60-120s
+  variante: default narrado         # narrado | produtor | faceless | demo
+  voz: default rachel (chatterbox)
+  cta: default INEMA.CLUB
+
+output:
+  formato: mp4
+  arquivos: <nome>-16x9.mp4 e <nome>-9x16.mp4 (um por formato, sem cópia comprimida)
+  destino: ~/projetos/output/<nome>/
+  extras: roteiro.md, narracao.wav, projeto HyperFrames
+
+tools:
+  - agent/tools/tts.py             # inemavox chatterbox
+  - agent/tools/render_video.py    # npx hyperframes render --quality draft|high
+  - agent/tools/validate_video.py
+  - npx hyperframes lint / inspect --samples 16
+  - flux2-klein                    # cenas ilustradas
+  - inemavox dlp                   # música/SFX
+
+acceptance:
+  - roteiro com gancho, 1 tese, CTA final
+  - narração sincronizada com cenas (captions batem com áudio)
+  - hyperframes lint = 0 erros; inspect = 0 problemas de layout
+  - 2 MP4, um por formato, render high
+  - sem texto cortado nas bordas em nenhum dos formatos
+  - duração dentro de ±20% do alvo
+
+loop:
+  teto_iteracoes: 3
+  inspecionar: render draft → extrair frames → mostrar; ffprobe; ler captions
+  validador: npx hyperframes lint && npx hyperframes inspect --samples 16 && python3 agent/tools/validate_video.py
+
+aprendizado:
+  falhas: FALHAS.md
+  wiki: wiki/skills/video-explicativo.md
