@@ -132,7 +132,8 @@ function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");setT
 async function api(p,opt){const r=await fetch(p,opt);const ct=r.headers.get("content-type")||"";return ct.includes("json")?r.json():r.text()}
 
 async function carregar(){
-  [DATA,CLUSTERS,CONTRATOS]=await Promise.all([api("/api/inventario"),api("/api/clusters"),api("/api/contratos")]);
+  try{[DATA,CLUSTERS,CONTRATOS]=await Promise.all([api("/api/inventario"),api("/api/clusters"),api("/api/contratos")]);}
+  catch(e){$("#view").innerHTML=`<div class="empty">Esta interface precisa do servidor local (a API não respondeu).<br><br><code>cd ~/projetos/agentes-fronteiros && python3 interface/server.py</code><br><br>e abra <code>http://127.0.0.1:8765</code>.</div>`;return}
   const opts=CLUSTERS.map(c=>`<option value="${esc(c.cluster?.id||c.id.split("/")[1])}">${esc(c.cluster?.id||c.id.split("/")[1])} (${(c.cluster?.membros||[]).length})</option>`).join("");
   $("#fCluster").innerHTML=`<option value="">todos os clusters</option>${opts}<option value="conselho">conselho (agentes)</option>`;
   $("#dCluster").innerHTML=opts+`<option value="conselho">conselho</option><option value="outros">outros</option>`;
