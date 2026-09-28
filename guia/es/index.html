@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html lang="pt-BR">
+<html lang="es">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>agentes-fronteiros — migração de agentes para generalista + skills</title>
-<meta content="Projeto de migração: agentes especializados → agente generalista + skills com contrato + tools + loop + wiki OKF. Inventário automático e interface de migração." name="description"/>
+<title>agentes-fronteiros — migración de agentes a un agente generalista + skills</title>
+<meta content="Proyecto de migración: agentes especializados → agente generalista + skills con contrato + tools + loop + wiki OKF. Inventario automático e interfaz de migración." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
@@ -92,7 +92,7 @@
   .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
 </style>
 <link href="https://inematds.github.io/agentes-fronteiros/guia/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/agentes-fronteiros/guia/en/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/agentes-fronteiros/guia/es/" hreflang="es" rel="alternate"/></head>
-<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="./" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="es/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<body><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../en/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
 <nav><div class="wrap">
 <a class="brand" href="#top"><span class="emoji">🧭</span> agentes-fronteiros</a>
 <span class="sep">|</span>
@@ -102,12 +102,12 @@
 <a class="pro" href="https://inema.pro" rel="noopener" target="_blank">PRO</a>
 </span>
 <div class="links">
-<a class="sec" href="#oque">O que é</a>
-<a class="sec" href="#fluxo">Como funciona</a>
-<a class="sec" href="#guia">Guia de uso</a>
-<a class="sec" href="#exemplos">Exemplos</a>
+<a class="sec" href="#oque">Qué es</a>
+<a class="sec" href="#fluxo">Cómo funciona</a>
+<a class="sec" href="#guia">Guía de uso</a>
+<a class="sec" href="#exemplos">Ejemplos</a>
 <a class="sec" href="#roadmap">Roadmap</a>
-<button aria-label="Alternar tema" class="tgl" id="themeToggle" title="Alternar tema">🌙</button>
+<button aria-label="Cambiar tema" class="tgl" id="themeToggle" title="Cambiar tema">🌙</button>
 <a class="btn" href="https://github.com/inematds/agentes-fronteiros" rel="noopener" target="_blank">GitHub</a>
 </div>
 </div></nav>
@@ -115,127 +115,127 @@
 <div class="glow"></div>
 <div class="wrap">
 <div>
-<span class="chip">Migração · agentes → generalista + skills</span>
-<h1>De 116 skills e 7 agentes a <span class="amb">um agente</span> que sabe trabalhar do nosso jeito</h1>
-<p class="lead">Inventário automático, clusters de sobreposição, contratos por skill, loop de validação e uma wiki OKF mantida pelo próprio agente — com interface de migração em kanban.</p>
+<span class="chip">Migración · agentes → generalista + skills</span>
+<h1>De 116 skills y 7 agentes a <span class="amb">un agente</span> que sabe trabajar a nuestro modo</h1>
+<p class="lead">Inventario automático, grupos de superposición, contratos por skill, loop de validación y una wiki OKF mantenida por el propio agente, con interfaz de migración en kanban.</p>
 <div class="cta">
-<a class="btn" href="#guia">Começar o guia</a>
-<a class="btn ghost" href="https://github.com/inematds/agentes-fronteiros" rel="noopener" target="_blank">Ver no GitHub</a>
+<a class="btn" href="#guia">Empezar la guía</a>
+<a class="btn ghost" href="https://github.com/inematds/agentes-fronteiros" rel="noopener" target="_blank">Ver en GitHub</a>
 </div>
 </div>
-<figure><img alt="Banner do projeto agentes-fronteiros" src="assets/banner.jpg"/></figure>
+<figure><img alt="Banner del proyecto agentes-fronteiros" src="../assets/banner.jpg"/></figure>
 </div>
 </header>
 <section id="oque"><div class="wrap">
-<span class="chip">O que é</span>
-<h2>Três referências, um repositório</h2>
-<p class="sub">A tese: não precisamos criar mais agentes. Precisamos ensinar agentes gerais a trabalhar do nosso jeito. O repo junta o plano de migração, o modelo de pastas do eve (Vercel) e uma base de conhecimento no formato OKF mantida no estilo LLM wiki.</p>
+<span class="chip">Qué es</span>
+<h2>Tres referencias, un repositorio</h2>
+<p class="sub">La tesis: no necesitamos crear más agentes. Necesitamos enseñarles a los agentes generales a trabajar a nuestro modo. El repo reúne el plan de migración, el modelo de carpetas de eve (Vercel) y una base de conocimiento en formato OKF mantenida al estilo LLM wiki.</p>
 <div class="grid g3">
-<div class="card"><h3>🗺️ Plano em 10 etapas</h3><p>Inventariar → agente base → skills → tools → progressive disclosure → aprendizado → loop → contrato → router → sistema vivo. Cada etapa produz algo concreto no repo.</p></div>
-<div class="card"><h3>📁 Pastas do eve</h3><p>O agente é um diretório: <code>agent/instructions.md</code>, <code>skills/</code>, <code>tools/</code>, <code>connections/</code>, <code>subagents/</code>, <code>schedules/</code> e <code>evals/</code> ao lado. Convenção, não o runtime TypeScript.</p></div>
-<div class="card"><h3>📚 Wiki OKF + LLM wiki</h3><p>Markdown com frontmatter YAML (<code>type</code>, <code>sources</code>, <code>generated</code>, <code>verified</code>, <code>status</code>). O agente ingere fontes brutas, consolida, indexa e registra no log. O estado de migração mora no frontmatter.</p></div>
+<div class="card"><h3>🗺️ Plan en 10 etapas</h3><p>Inventariar → agente base → skills → tools → divulgación progresiva → aprendizaje → loop → contrato → router → sistema vivo. Cada etapa produce algo concreto en el repo.</p></div>
+<div class="card"><h3>📁 Carpetas de eve</h3><p>El agente es un directorio: <code>agent/instructions.md</code>, <code>skills/</code>, <code>tools/</code>, <code>connections/</code>, <code>subagents/</code>, <code>schedules/</code> e <code>evals/</code> al lado. Convención, no el runtime TypeScript.</p></div>
+<div class="card"><h3>📚 Wiki OKF + LLM wiki</h3><p>Markdown con frontmatter YAML (<code>type</code>, <code>sources</code>, <code>generated</code>, <code>verified</code>, <code>status</code>). El agente ingiere fuentes en bruto, consolida, indexa y registra en el log. El estado de migración está en el frontmatter.</p></div>
 </div>
 </div></section>
 <section id="fluxo"><div class="wrap">
-<span class="chip">Como funciona</span>
-<h2>Da skill instalada à skill migrada</h2>
-<p class="sub">O inventário varre as skills e agentes instalados no Claude Code, gera uma página OKF por item, agrupa em clusters de sobreposição e a interface acompanha cada um pelos estágios do plano.</p>
+<span class="chip">Cómo funciona</span>
+<h2>De la skill instalada a la skill migrada</h2>
+<p class="sub">El inventario recorre las skills y los agentes instalados en Claude Code, genera una página OKF por elemento, los agrupa en conjuntos de superposición y la interfaz sigue cada uno a través de las etapas del plan.</p>
 <div class="flow">
 <span>~/.claude/skills</span><span class="arr">→</span>
 <span>inventario.py</span><span class="arr">→</span>
-<span>wiki/skills · clusters</span><span class="arr">→</span>
-<span>interface (kanban)</span><span class="arr">→</span>
+<span>wiki/skills · clústeres</span><span class="arr">→</span>
+<span>interfaz (kanban)</span><span class="arr">→</span>
 <span>contrato.yaml</span><span class="arr">→</span>
 <span>agent/skills + tools</span><span class="arr">→</span>
 <span>evals</span><span class="arr">→</span>
-<span>aprovado</span>
+<span>aprobado</span>
 </div>
 <div class="grid g4" style="margin-top:28px">
-<div class="card"><span class="num">1</span><h3>Inventário</h3><p>116 skills, 7 agentes, 16 clusters. Cada página traz gatilhos, ferramentas citadas, scripts candidatos a <code>tools/</code> e o mapa da etapa 1.</p></div>
-<div class="card"><span class="num">2</span><h3>Contrato</h3><p>Trigger, input, output, tools permitidas e acceptance verificável. A skill vira uma função operacional da empresa.</p></div>
-<div class="card"><span class="num">3</span><h3>Loop</h3><p>Planejar → executar → inspecionar → criticar → corrigir → testar. A primeira versão é rascunho; teto de 3 voltas.</p></div>
-<div class="card"><span class="num">4</span><h3>Aprendizado</h3><p>Corrigir o sistema, não a saída: skill, regra, exemplo ou script. Uma linha em <code>FALHAS.md</code> e no <code>wiki/log.md</code>.</p></div>
+<div class="card"><span class="num">1</span><h3>Inventario</h3><p>116 skills, 7 agentes, 16 clusters. Cada página incluye activadores, herramientas mencionadas, scripts candidatos a <code>tools/</code> y el mapa de la etapa 1.</p></div>
+<div class="card"><span class="num">2</span><h3>Contrato</h3><p>Trigger, input, output, tools permitidas y aceptación verificable. La skill se convierte en una función operativa de la empresa.</p></div>
+<div class="card"><span class="num">3</span><h3>Loop</h3><p>Planear → ejecutar → inspeccionar → criticar → corregir → probar. La primera versión es un borrador; máximo de 3 vueltas.</p></div>
+<div class="card"><span class="num">4</span><h3>Aprendizaje</h3><p>Corregir el sistema, no el resultado: skill, regla, ejemplo o script. Una línea en <code>FALHAS.md</code> y en el <code>wiki/log.md</code>.</p></div>
 </div>
 </div></section>
 <section id="pre"><div class="wrap">
-<span class="chip">Pré-requisitos</span>
-<h2>Só Python e PyYAML</h2>
-<p class="sub">Sem framework, sem build, sem banco. O servidor da interface é stdlib; a wiki é texto em git.</p>
+<span class="chip">Requisitos previos</span>
+<h2>Solo Python y PyYAML</h2>
+<p class="sub">Sin framework, sin build, sin base de datos. El servidor de la interfaz usa stdlib; la wiki es texto en git.</p>
 <div class="grid g3">
-<div class="card"><h3>Python 3.11+</h3><p>Com PyYAML instalado.</p><pre><span class="c"># checar</span>
+<div class="card"><h3>Python 3.11+</h3><p>Con PyYAML instalado.</p><pre><span class="c"># verificar</span>
 <span class="k">python3</span> -c <span class="s">"import yaml; print(yaml.__version__)"</span></pre></div>
-<div class="card"><h3>Skills e agentes do Claude Code</h3><p>O inventário lê o que está instalado na máquina.</p><pre><span class="k">ls</span> ~/.claude/skills | wc -l
+<div class="card"><h3>Skills y agentes de Claude Code</h3><p>El inventario lee lo que está instalado en la máquina.</p><pre><span class="k">ls</span> ~/.claude/skills | wc -l
 <span class="k">ls</span> ~/.claude/agents</pre></div>
-<div class="card"><h3>Clonar o repo</h3><p>Ou usar a pasta local do projeto.</p><pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/agentes-fronteiros</span>
+<div class="card"><h3>Clonar el repo</h3><p>O usa la carpeta local del proyecto.</p><pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/agentes-fronteiros</span>
 <span class="k">cd</span> agentes-fronteiros</pre></div>
 </div>
 </div></section>
 <section id="guia"><div class="wrap">
-<span class="chip">Guia de uso · passo a passo</span>
-<h2>Rodar a migração</h2>
-<p class="sub">Três comandos. O resto é decisão humana na interface e trabalho do agente nas skills.</p>
+<span class="chip">Guía de uso · paso a paso</span>
+<h2>Ejecutar la migración</h2>
+<p class="sub">Tres comandos. El resto es decisión humana en la interfaz y trabajo del agente en las skills.</p>
 <div class="step"><div class="b">1</div><div>
-<h3>Gerar o inventário</h3>
-<p>Varre as skills e agentes instalados e escreve uma página OKF por item em <code>wiki/skills/</code> e <code>wiki/agentes/</code>, mais os clusters de sobreposição. É idempotente e preserva o estágio de migração já decidido.</p>
+<h3>Generar el inventario</h3>
+<p>Recorre las skills y los agentes instalados y escribe una página OKF por elemento en <code>wiki/skills/</code> e <code>wiki/agentes/</code>, además de los clusters de superposición. Es idempotente y conserva la etapa de migración ya decidida.</p>
 <pre><span class="k">python3</span> tools/inventario.py  <span class="c"># skills: 116  agentes: 7  clusters: 16</span></pre>
 </div></div>
 <div class="step"><div class="b">2</div><div>
-<h3>Validar a wiki</h3>
-<p>Falha se um conceito não tiver <code>type</code>, se houver link quebrado, <code>related</code> inexistente ou estágio inválido. Rodar antes de commitar.</p>
-<pre><span class="k">python3</span> tools/wiki_lint.py  <span class="c"># wiki: 149 conceitos · 0 erros</span></pre>
+<h3>Validar la wiki</h3>
+<p>Falla si un concepto no tiene <code>type</code>, si hay un enlace roto, <code>related</code> inexistente o etapa inválida. Ejecutar antes de hacer commit.</p>
+<pre><span class="k">python3</span> tools/wiki_lint.py  <span class="c"># wiki: 149 conceptos · 0 errores</span></pre>
 </div></div>
 <div class="step"><div class="b">3</div><div>
-<h3>Abrir a interface de migração</h3>
-<p>Kanban por estágio, tabela filtrável, clusters com barra de progresso, contratos e leitor da wiki. Clicar num card abre a gaveta para mudar estágio, cluster, destino e notas — gravado direto no frontmatter da página e no <code>wiki/log.md</code>.</p>
+<h3>Abrir la interfaz de migración</h3>
+<p>Kanban por etapa, tabla filtrable, grupos con barra de progreso, contratos y lector de la wiki. Haz clic en una tarjeta para abrir el panel y cambiar la etapa, el grupo, el destino y las notas; se guarda directamente en el frontmatter de la página y en el <code>wiki/log.md</code>.</p>
 <pre><span class="k">python3</span> interface/server.py  <span class="c"># http://127.0.0.1:8765</span></pre>
 </div></div>
 <div class="step"><div class="b">4</div><div>
-<h3>Migrar um piloto</h3>
-<p>Começar por <code>reels</code>, <code>video-explicativo</code> e <code>curso</code>. O contrato já está rascunhado; a skill migrada nasce do template e copia o contrato para o lado do <code>SKILL.md</code>.</p>
-<pre><span class="c"># contrato e template</span>
+<h3>Migrar un piloto</h3>
+<p>Empezar por <code>reels</code>, <code>video-explicativo</code> e <code>curso</code>. El contrato ya está redactado; la skill migrada nace de la plantilla y copia el contrato al lado de <code>SKILL.md</code>.</p>
+<pre><span class="c"># contrato y plantilla</span>
 <span class="k">cat</span> migracao/contratos/reels.yaml
 <span class="k">mkdir</span> -p agent/skills/reels &amp;&amp; <span class="k">cp</span> migracao/template-SKILL.md agent/skills/reels/SKILL.md
 <span class="k">cp</span> migracao/contratos/reels.yaml agent/skills/reels/contrato.yaml</pre>
 </div></div>
 <div class="step"><div class="b">5</div><div>
-<h3>Testar e aprovar</h3>
-<p>Cada skill só sobe para <code>testado</code> depois de passar em duas tarefas de <code>evals/tarefas/</code>, e para <code>aprovado</code> depois de uso real sem correção. Se houve correção, uma linha em <code>FALHAS.md</code> e o ajuste na skill.</p>
+<h3>Probar y aprobar</h3>
+<p>Cada skill solo pasa a <code>testado</code> después de superar dos tareas de <code>evals/tarefas/</code>, y para <code>aprovado</code> después de un uso real sin correcciones. Si hubo una corrección, una línea en <code>FALHAS.md</code> y el ajuste en la skill.</p>
 <pre><span class="k">ls</span> evals/tarefas/   <span class="c"># reels-01.md · video-explicativo-01.md · curso-01.md</span></pre>
 </div></div>
 <div class="step"><div class="b">6</div><div>
-<h3>Manter a wiki viva</h3>
-<p>Fonte nova entra em <code>wiki/raw/</code> com data no nome e nunca é editada. O agente consolida em conceitos, preenche <code>sources</code> e <code>generated</code>, regenera os índices e registra no log. Convenções completas em <code>wiki/SCHEMA.md</code>.</p>
+<h3>Mantener viva la wiki</h3>
+<p>La fuente nueva entra en <code>wiki/raw/</code> con fecha en el nombre y nunca se edita. El agente consolida en conceptos, completa <code>sources</code> e <code>generated</code>, regenera los índices y registra en el log. Las convenciones completas están en <code>wiki/SCHEMA.md</code>.</p>
 <pre><span class="k">cp</span> nova-fonte.md wiki/raw/<span class="s">2026-09-20-nova-fonte.md</span>
-<span class="c"># agente: consolidar → conceitos/ · index.md · log.md</span>
+<span class="c"># agente: consolidar → conceptos/ · index.md · log.md</span>
 <span class="k">python3</span> tools/wiki_lint.py</pre>
 </div></div>
 </div></section>
 <section id="exemplos"><div class="wrap">
-<span class="chip">Exemplos</span>
-<h2>A interface em uso</h2>
-<p class="sub">Capturas do servidor local logo após o primeiro inventário, com os três pilotos já marcados como mapeados.</p>
+<span class="chip">Ejemplos</span>
+<h2>La interfaz en uso</h2>
+<p class="sub">Capturas del servidor local justo después del primer inventario, con los tres pilotos ya marcados como mapeados.</p>
 <div class="ex">
-<figure><img alt="Kanban de migração por estágio" src="assets/ex1-kanban.jpg"/><figcaption>Kanban: 123 itens distribuídos pelos 9 estágios; os pilotos em “mapeado”, um agente placeholder em “descontinuado”.</figcaption></figure>
-<figure><img alt="Clusters de sobreposição" src="assets/ex2-clusters.jpg"/><figcaption>Clusters: skills que disputam a mesma intenção (hyperframes com 17, curso com 8, reels com 5) e o progresso de consolidação de cada um.</figcaption></figure>
+<figure><img alt="Kanban de migración por etapa" src="../assets/ex1-kanban.jpg"/><figcaption>Kanban: 123 elementos distribuidos en las 9 etapas; los pilotos en “mapeado”, un agente placeholder en “descontinuado”.</figcaption></figure>
+<figure><img alt="Clusters de superposición" src="../assets/ex2-clusters.jpg"/><figcaption>Clusters: skills que compiten por la misma intención (hyperframes con 17, curso con 8, reels con 5) y el progreso de consolidación de cada uno.</figcaption></figure>
 </div>
 <div class="ex" style="margin-top:18px">
-<figure><img alt="Tabela filtrável de skills" src="assets/ex3-tabela.jpg"/><figcaption>Tabela: gatilhos, ferramentas citadas e scripts por skill — a matéria-prima da etapa 4 (extrair código repetido para tools/).</figcaption></figure>
-<figure><img alt="Capa do projeto" src="assets/hero.png"/><figcaption>Capa oficial do catálogo INEMA (capa/capa.png), gerada pela skill capa-inema.</figcaption></figure>
+<figure><img alt="Tabla filtrable de skills" src="../assets/ex3-tabela.jpg"/><figcaption>Tabla: activadores, herramientas mencionadas y scripts por skill; la materia prima de la etapa 4 (extraer código repetido a tools/).</figcaption></figure>
+<figure><img alt="Portada del proyecto" src="../assets/hero.png"/><figcaption>Portada oficial del catálogo INEMA (capa/capa.png), generada por la skill capa-inema.</figcaption></figure>
 </div>
 </div></section>
 <section id="roadmap"><div class="wrap">
 <span class="chip">Roadmap</span>
-<h2>Não migrar tudo de uma vez</h2>
-<p class="sub">A ordem segue a estratégia prática do plano: pilotos primeiro, depois os clusters com mais sobreposição.</p>
-<div class="phase"><div class="tag">Fase 0</div><div class="d"><strong>Fundação (feita)</strong><span>Inventário automático, wiki OKF com 149 conceitos, contratos dos 3 pilotos, agente base, interface de migração.</span></div></div>
-<div class="phase"><div class="tag">Fase 1</div><div class="d"><strong>Pilotos</strong><span>reels, video-explicativo e curso migrados para agent/skills/ com contrato, loop e evals. Primeiras tools extraídas (transcrição, download, render, validação).</span></div></div>
-<div class="phase"><div class="tag">Fase 2</div><div class="d"><strong>Clusters grandes</strong><span>hyperframes, video-ia, imagens, avatar: uma skill-mãe por cluster com references por variante; skills redundantes marcadas como descontinuadas.</span></div></div>
-<div class="phase"><div class="tag">Fase 3</div><div class="d"><strong>Sistema vivo</strong><span>Router no instructions.md cobrindo todos os clusters, rotina de lint e inventário agendada, wiki alimentada pelas correções.</span></div></div>
+<h2>No migres todo de una vez</h2>
+<p class="sub">El orden sigue la estrategia práctica del plan: primero los pilotos y después los clusters con más superposición.</p>
+<div class="phase"><div class="tag">Fase 0</div><div class="d"><strong>Fundación (hecha)</strong><span>Inventario automático, wiki OKF con 149 conceptos, contratos de los 3 pilotos, agente base, interfaz de migración.</span></div></div>
+<div class="phase"><div class="tag">Fase 1</div><div class="d"><strong>Pilotos</strong><span>reels, video-explicativo y curso migrados a agent/skills/ con contrato, loop y evals. Primeras tools extraídas (transcripción, descarga, renderizado, validación).</span></div></div>
+<div class="phase"><div class="tag">Fase 2</div><div class="d"><strong>Clusters grandes</strong><span>hyperframes, video-ia, imágenes, avatar: una skill principal por clúster con referencias por variante; las skills redundantes se marcan como descontinuadas.</span></div></div>
+<div class="phase"><div class="tag">Fase 3</div><div class="d"><strong>Sistema vivo</strong><span>Router en instructions.md que cubra todos los grupos, rutina de lint e inventario programada, wiki alimentada por las correcciones.</span></div></div>
 </div></section>
 <footer>
 <div class="wrap">
 <div class="pill">Python 3 · stdlib</div><div class="pill">PyYAML</div><div class="pill">OKF v0.2</div><div class="pill">layout eve</div><div class="pill">Claude Code skills</div>
-<p style="margin-top:18px">agentes-fronteiros · projeto de pesquisa/educação INEMA ·
+<p style="margin-top:18px">agentes-fronteiros · proyecto de investigación/educación INEMA ·
       <a href="https://github.com/inematds/agentes-fronteiros">inematds/agentes-fronteiros</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>
 </div>
